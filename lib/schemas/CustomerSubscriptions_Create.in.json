@@ -1,0 +1,71 @@
+{
+    "type": "object",
+    "properties": {
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "resourceGroup": {
+            "required": true,
+            "type": "string"
+        },
+        "registrationName": {
+            "required": true,
+            "type": "string"
+        },
+        "customerSubscriptionName": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "allOf": [
+                {
+                    "description": "Base resource object.",
+                    "properties": {
+                        "etag": {
+                            "description": "The entity tag used for optimistic concurrency when modifying the resource.",
+                            "type": "string"
+                        },
+                        "id": {
+                            "description": "ID of the resource.",
+                            "readOnly": true,
+                            "type": "string"
+                        },
+                        "name": {
+                            "description": "Name of the resource.",
+                            "readOnly": true,
+                            "type": "string"
+                        },
+                        "type": {
+                            "description": "Type of Resource.",
+                            "readOnly": true,
+                            "type": "string"
+                        }
+                    },
+                    "type": "object",
+                    "x-ms-azure-resource": true
+                }
+            ],
+            "description": "Customer subscription.",
+            "properties": {
+                "properties": {
+                    "description": "Customer subscription properties.",
+                    "x-ms-client-flatten": true,
+                    "properties": {
+                        "tenantId": {
+                            "description": "Tenant Id.",
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string",
+            "default": "2017-06-01"
+        }
+    }
+}
